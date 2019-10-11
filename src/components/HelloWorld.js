@@ -1,4 +1,4 @@
-import SlotData from './slot.vue';
+import SlotData from './slot-data.vue';
 export default {
     name: 'hello-world',
     components: {
@@ -17,6 +17,10 @@ export default {
         handleClick(data) {
             console.log(data);
         }
+    },
+    mounted() {
+        console.log(this.$slots);
+        console.log(this.$scopedSlots);
     },
     render: function (createElement) {
         return createElement('div', {
@@ -43,6 +47,7 @@ export default {
             this.$scopedSlots.hello({
                 text: this.hello
             }),
+            this.$scopedSlots.default(),
             createElement('slot-data', {
                 scopedSlots: {
                     default: ({ data }) => createElement('span', data)

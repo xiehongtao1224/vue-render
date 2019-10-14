@@ -11,7 +11,7 @@
     <parent-component :list="list">
       <children-component prop="key"></children-component>
       <children-component>
-        <template v-slot="{ item }">
+        <template #[soltName]="{ item }">
           <button @click="handleClick(item)">{{ item.value }}</button>
         </template>
       </children-component>
@@ -42,7 +42,8 @@ export default {
       }, {
           key: 3,
           value: 'three'
-      }]
+      }],
+      soltName: 'default'
     }
   },
   methods: {
